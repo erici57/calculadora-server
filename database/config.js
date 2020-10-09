@@ -6,10 +6,11 @@ const dbConnection = async() => {
 
     try {
 
-        await mongoose.connect('mongodb://localhost:27017/calculadoradb', {
+        await mongoose.connect('mongodb://localhost:27017/blogdb', {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            useCreateIndex: true
+            useCreateIndex: true,
+            useFindAndModify: false
         });
 
         console.log('Base de Datos Online');

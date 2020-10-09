@@ -1,9 +1,12 @@
 const express = require('express');
+const morgan = require('morgan');
 const cors = require('cors');
 const { dbConnection } = require('./database/config');
 
 // crear el servidor express
 const app = express();
+
+app.use(morgan('dev'));
 
 // config CORS
 app.use(cors());
@@ -11,6 +14,7 @@ app.use(cors());
 
 // lectura y parseo del body
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 
 // base de datos
@@ -19,7 +23,7 @@ dbConnection();
 
 
 // rutas
-app.use('/api/sesiones', require('./routes/sesiones'));
+app.use('/api/post', require('./routes/post'));
 
 
 

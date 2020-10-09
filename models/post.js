@@ -1,15 +1,15 @@
 const { Schema, model } = require('mongoose');
 
-const SesionSchema = Schema({
+const PostSchema = new Schema({
 
-    operandos: {
+    name: {
         type: String,
         required: true
     },
-    operacion: {
+    description: {
         type: String
     }
 
 });
 
-module.exports = model('Sesion', SesionSchema);
+module.exports = model('Post', PostSchema);
